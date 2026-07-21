@@ -2,6 +2,15 @@
 Saves `images/dashboard-preview.png`.
 """
 from pathlib import Path
+import os
+import sys
+
+# Ensure repository root is on sys.path so absolute imports work when this
+# script is executed directly (e.g., during CI or by users).
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+
 from dashboard.data_loader import load_sales_table
 from dashboard import utils
 from PIL import Image, ImageDraw, ImageFont

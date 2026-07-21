@@ -1,4 +1,14 @@
+import os
+import sys
 import streamlit as st
+
+# Ensure repository root is on sys.path so absolute imports like
+# `from dashboard.data_loader import ...` work when Streamlit runs
+# this file as a script (Streamlit Community Cloud behavior).
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+
 from dashboard.data_loader import load_sales_table
 from dashboard import utils
 
