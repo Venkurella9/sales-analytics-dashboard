@@ -46,6 +46,21 @@ def apply_filters(df, year, month, region, category):
 
 def main():
     st.title('Sales Analytics Dashboard')
+    # If the SQLite DB doesn't exist, generate the dataset and build the DB.
+    db_full = os.path.join(ROOT, 'sql', 'sales_data.db')
+    if not os.path.exists(db_full):
+        with st.spinner('Generating synthetic dataset and building database (this may take a minute)...'):
+            cwd = os.getcwd()
+            os.chdir(ROOT)
+            try:
+                import data.generate_data as gen
+                import data.clean_data as clean
+                gen.main(rows=100000, out_csv='data/sales_data.csv')
+                clean.clean()
+            finally:
+                os.chdir(cwd)
+        st.success('Dataset generated and database created.')
+
     df = load_data()
 
     year, month, region, category = sidebar_filters(df)
