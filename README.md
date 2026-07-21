@@ -6,32 +6,44 @@ Overview
 --------
 This repository contains a production-quality end-to-end project that generates a realistic retail sales dataset, cleans and persists it to SQLite, runs business analysis queries, and exposes an interactive Streamlit dashboard.
 
-Quickstart
-----------
-1. Create and activate a virtual environment:
+**Quick Start**
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/Venkurella9/sales-analytics-dashboard.git
+cd sales-analytics-dashboard
+```
+
+2. Create and activate a virtual environment
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 ```
 
-2. Install dependencies:
+3. Install requirements
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Generate data and populate the SQLite database (100k rows):
+4. Generate the dataset (example: 100k rows)
 
 ```bash
 python data/generate_data.py --rows 100000
+```
+
+5. Create the SQLite database (cleans CSV and writes `sql/sales_data.db`)
+
+```bash
 python data/clean_data.py
 ```
 
-4. Run the Streamlit dashboard:
+6. Launch the Streamlit dashboard (use venv Python to ensure correct environment)
 
 ```bash
-streamlit run dashboard/app.py
+.venv/bin/python -m streamlit run dashboard/app.py
 ```
 
 Project layout
@@ -63,6 +75,14 @@ New analytics features
 - Year-over-Year (YoY) Sales Growth: compares yearly revenue and shows percentage growth to highlight trends.
 - Customer Segmentation (RFM): automatic Recency-Frequency-Monetary analysis that groups customers into segments like Champions, Loyal, Potential, Needs Attention, and At Risk.
 - Business Insights panel: auto-generated bullet-point summary of top category, top region, profit margin, and recent YoY growth for the current filters.
+
+**Project Highlights**
+
+- **Executive-ready KPIs:** High-level metrics (Revenue, Orders, AOV, Profit, Margin) for quick decision-making.
+- **Actionable Insights:** Auto-generated insights highlight top-performing categories, regions, and YoY trends to inform marketing and inventory decisions.
+- **Customer Segmentation:** Built-in RFM segmentation identifies high-value customers and targets for retention or re-engagement campaigns.
+- **Campaign & Pricing Optimization:** Monthly and YoY trend charts enable evaluation of promotions and pricing strategies.
+- **Reproducible Pipeline:** Data generation and cleaning scripts allow regenerating the dataset and database for testing or demos without committing large artifacts.
 
 ## Folder Structure
 
