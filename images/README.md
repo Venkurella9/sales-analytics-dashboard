@@ -1,0 +1,1 @@
+Add company logos and screenshots here. Example: `images/logo.png`, `images/dashboard_screenshot.png`.

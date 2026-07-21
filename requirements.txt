@@ -1,0 +1,12 @@
+pandas
+numpy
+Faker
+sqlalchemy
+streamlit
+plotly
+altair
+seaborn
+matplotlib
+scikit-learn
+python-dotenv
+pytest
