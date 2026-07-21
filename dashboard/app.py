@@ -55,7 +55,7 @@ def main():
             try:
                 import data.generate_data as gen
                 import data.clean_data as clean
-                gen.main(rows=100000, out_csv='data/sales_data.csv')
+                gen.main(rows=10000, out_csv='data/sales_data.csv')
                 clean.clean()
             finally:
                 os.chdir(cwd)
